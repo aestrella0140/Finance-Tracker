@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
+import { ApolloClient, InMemoryCache, ApolloProvider,createHttpLink } from '@apollo/client';
 import { Outlet } from 'react-router-dom';
 import { setContext } from '@apollo/client/link/context';
 
@@ -18,17 +18,17 @@ const authLink = setContext((_, { headers }) => {
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
-  link,
+  link: authLink.concat(httpLink),
 });
 
 function App() {
   
 
   return (
-    <ApolloProvider>
-      
+    <ApolloProvider client={client}>
+      <Outlet />
     </ApolloProvider>
   )
-}
+};
 
-export default App
+export default App;
