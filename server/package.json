@@ -1,0 +1,21 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "watch": "nodemon",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@apollo/server": "4.11.3",
+    "bcrypt": "5.1.1",
+    "jsonwebtoken": "9.0.2",
+    "express": "^4.21.2",
+    "graphql": "^15.9.0",
+    "mongoose": "^8.9.5"
+  }
+}
